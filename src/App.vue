@@ -1,31 +1,39 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div id="app ">
+    <app-navbar></app-navbar>
+    <div class="container">
+      <app-personsGrid :persons="persons"></app-personsGrid>
+      <app-personsData :persons="persons"></app-personsData>
     </div>
-    <router-view/>
   </div>
 </template>
+<script>
+import axios from "axios";
+import PersonsGrid from "./components/PersonsGrid.vue";
+import Navbar from "./components/Navbar.vue";
+import PersonsData from "./components/PersonsData.vue";
+export default {
+  data() {
+    return {
+      gameIsRunning: true,
+      persons: [],
+      personsCopy: []
+    };
+  },
+  components: {
+    "app-navbar": Navbar,
+    "app-personsGrid": PersonsGrid,
+    "app-personsData": PersonsData
+  },
+  created() {
+    axios.get("https://randomuser.me/api/?results=4").then(users => {
+      this.persons = users.data.results;
+      this.personsCopy = users.data.results;
+    });
+  }
+};
+</script>
+
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
