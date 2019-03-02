@@ -1,9 +1,9 @@
 <template>
   <div id="app ">
-    <app-navbar></app-navbar>
+    <app-navbar :startGame="startGame"></app-navbar>
     <div class="container">
       <app-personsGrid :persons="persons"></app-personsGrid>
-      <app-personsData :persons="persons"></app-personsData>
+      <app-personsData :personsCopy="personsCopy"></app-personsData>
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
     return {
       gameIsRunning: true,
       persons: [],
-      personsCopy: []
+      personsCopy: null
     };
   },
   components: {
@@ -28,8 +28,18 @@ export default {
   created() {
     axios.get("https://randomuser.me/api/?results=4").then(users => {
       this.persons = users.data.results;
-      this.personsCopy = users.data.results;
+      this.personsCopy = JSON.parse(JSON.stringify(this.persons));
     });
+  },
+  methods: {
+    startGame() {
+      this.persons.forEach(person => {
+        person.name.last = "what ist my Name?";
+        person.name.first = "";
+        person.location.state = "Where am I from?";
+        person.dob.age = "How old am I?";
+      });
+    }
   }
 };
 </script>
