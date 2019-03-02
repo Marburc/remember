@@ -17,7 +17,8 @@ export default {
     return {
       gameIsRunning: true,
       persons: [],
-      personsCopy: null
+      personsCopy: null,
+      selectedUser: null
     };
   },
   components: {

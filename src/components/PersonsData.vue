@@ -1,11 +1,18 @@
 <template>
   <div class="person row">
-    <div v-for="person in personsCopy" :key="person.id.value" class="b-col person text-center">
+    <div
+      v-for="person in personsCopy"
+      :key="person.login.username"
+      class="b-col person text-center"
+    >
       <b-card no-body style="max-width: 11rem;">
         <h4 slot="header">{{person.name.first}} {{person.name.last}}</h4>
 
         <b-list-group flush>
-          <b-list-group-item>{{person.location.state}}</b-list-group-item>
+          <b-list-group-item
+            style="cursor: pointer"
+            @click="checkState(person)"
+          >{{person.location.state}}</b-list-group-item>
           <b-list-group-item>{{person.dob.age}}</b-list-group-item>
         </b-list-group>
       </b-card>
@@ -13,8 +20,20 @@
   </div>
 </template>
 <script>
+import { eventBus } from "../main";
 export default {
-  props: ["personsCopy"]
+  data() {
+    return {
+      selectedUser: null
+    };
+  },
+  props: ["personsCopy"],
+  methods: {
+    checkState(person) {
+      this.selectedUser = person;
+      eventBus.$emit("selectedUser", this.selectedUser);
+    }
+  }
 };
 </script>
 
