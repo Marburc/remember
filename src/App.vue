@@ -3,7 +3,7 @@
     <app-navbar :startGame="startGame"></app-navbar>
     <div class="container">
       <app-personsGrid :persons="persons"></app-personsGrid>
-      <app-personsData :personsCopy="personsCopy"></app-personsData>
+      <app-personsData :gameIsRunning="gameIsRunning" :personsCopy="personsCopy"></app-personsData>
     </div>
   </div>
 </template>
@@ -15,7 +15,7 @@ import PersonsData from "./components/PersonsData.vue";
 export default {
   data() {
     return {
-      gameIsRunning: true,
+      gameIsRunning: false,
       persons: [],
       personsCopy: null,
       selectedUser: null
@@ -34,12 +34,13 @@ export default {
   },
   methods: {
     startGame() {
+      this.gameIsRunning = true;
       this.persons = _.shuffle(this.persons);
       this.persons.forEach(person => {
-        person.name.last = "what ist my Name?";
+        person.name.last = "";
         person.name.first = "";
-        person.location.state = "Where am I from?";
-        person.dob.age = "How old am I?";
+        person.location.state = "";
+        person.dob.age = "";
       });
     }
   }

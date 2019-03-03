@@ -1,5 +1,5 @@
 <template>
-  <div class="person row">
+  <div v-if="gameIsRunning === true " class="person row">
     <div
       v-for="person in personsCopy"
       :key="person.login.username"
@@ -9,7 +9,7 @@
         <h4
           v-if="person.name.first !== ''"
           style="cursor: pointer"
-          @click="checkState(person)"
+          @click="checkState(person,'name')"
           slot="header"
         >{{person.name.first}} {{person.name.last}}</h4>
 
@@ -17,12 +17,13 @@
           <b-list-group-item
             v-if="person.location.state !== ''"
             style="cursor: pointer"
-            @click="checkState(person)"
+            @click="checkState(person,
+        'state')"
           >{{person.location.state}}</b-list-group-item>
           <b-list-group-item
             v-if="person.dob.age !== ''"
             style="cursor: pointer"
-            @click="checkState(person)"
+            @click="checkState(person,'age')"
           >{{person.dob.age}}</b-list-group-item>
         </b-list-group>
       </b-card>
@@ -35,14 +36,16 @@ export default {
   data() {
     return {
       selectedUser: null,
-      persons: []
+      persons: [],
+      selectedInfo: ""
     };
   },
-  props: ["personsCopy"],
+  props: ["personsCopy", "gameIsRunning"],
   methods: {
-    checkState(person) {
+    checkState(person, info) {
+      this.selectedInfo = info;
       this.selectedUser = person;
-      eventBus.$emit("selectedUser", this.selectedUser);
+      eventBus.$emit("selectedUser", this.selectedUser, this.selectedInfo);
     }
   },
   created() {

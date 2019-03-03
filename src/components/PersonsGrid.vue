@@ -6,8 +6,15 @@
         :key="person.login.username"
         class="b-col person text-center"
       >
-        <b-card no-body style="max-width: 11rem; " :img-src="person.picture.large" img-alt="Image">
+        <b-card
+          @click="checkUser(person)"
+          no-body
+          style="max-width: 11rem; cursor: pointer"
+          :img-src="person.picture.large"
+          img-alt="Image"
+        >
           <h4
+            v-if="person.name.first !== ''"
             @click="checkName(person)"
             style="cursor: pointer"
             slot="header"
@@ -15,10 +22,15 @@
 
           <b-list-group flush>
             <b-list-group-item
+              v-if="person.location.state !== ''"
               @click="checkState(person)"
               style="cursor: pointer"
             >{{person.location.state}}</b-list-group-item>
-            <b-list-group-item style="cursor: pointer" @click="checkAge(person)">{{person.dob.age}}</b-list-group-item>
+            <b-list-group-item
+              v-if="person.dob.age !== ''"
+              style="cursor: pointer"
+              @click="checkAge(person)"
+            >{{person.dob.age}}</b-list-group-item>
           </b-list-group>
         </b-card>
       </div>
@@ -32,36 +44,33 @@ export default {
   data() {
     return {
       selectedUser: "",
-      correctAnswer: ""
+      correctAnswer: "",
+      selectedInfo: ""
     };
   },
   created() {
-    eventBus.$on("selectedUser", selUser => {
+    eventBus.$on("selectedUser", (selUser, selInfo) => {
       this.selectedUser = selUser;
+      this.selectedInfo = selInfo;
     });
   },
   methods: {
-    checkState(user) {
-      if (user.login.username === this.selectedUser.login.username) {
-        user.location.state = this.selectedUser.location.state;
-        this.correctAnswer = "state";
-        eventBus.$emit("correctAnswer", this.correctAnswer);
-      }
-    },
-    checkAge(user) {
-      if (user.login.username === this.selectedUser.login.username) {
-        user.dob.age = this.selectedUser.dob.age;
-        this.correctAnswer = "age";
-        eventBus.$emit("correctAnswer", this.correctAnswer);
-      }
-    },
-    checkName(user) {
-      if (user.login.username === this.selectedUser.login.username) {
-        user.name.first = this.selectedUser.name.first;
-        user.name.last = this.selectedUser.name.last;
-        this.correctAnswer = "name";
-        eventBus.$emit("correctAnswer", this.correctAnswer);
-      }
+    checkUser(user) {
+      if (user.login.username === this.selectedUser.login.username)
+        if (this.selectedInfo === "state") {
+          user.location.state = this.selectedUser.location.state;
+          this.correctAnswer = "state";
+          eventBus.$emit("correctAnswer", this.correctAnswer);
+        } else if (this.selectedInfo === "age") {
+          user.dob.age = this.selectedUser.dob.age;
+          this.correctAnswer = "age";
+          eventBus.$emit("correctAnswer", this.correctAnswer);
+        } else if (this.selectedInfo === "name") {
+          user.name.first = this.selectedUser.name.first;
+          user.name.last = this.selectedUser.name.last;
+          this.correctAnswer = "name";
+          eventBus.$emit("correctAnswer", this.correctAnswer);
+        }
     }
   }
 };
