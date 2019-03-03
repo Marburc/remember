@@ -27,13 +27,14 @@ export default {
     "app-personsData": PersonsData
   },
   created() {
-    axios.get("https://randomuser.me/api/?results=4").then(users => {
+    axios.get("https://randomuser.me/api/?results=4&nat=de").then(users => {
       this.persons = users.data.results;
       this.personsCopy = JSON.parse(JSON.stringify(this.persons));
     });
   },
   methods: {
     startGame() {
+      this.persons = _.shuffle(this.persons);
       this.persons.forEach(person => {
         person.name.last = "what ist my Name?";
         person.name.first = "";

@@ -4,6 +4,10 @@ import router from './router'
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import VueLodash from 'vue-lodash'
+
+const options = { name: 'lodash' } // customize the way you want to call it
+
 
 export const eventBus = new Vue()
 
