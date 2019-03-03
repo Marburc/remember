@@ -10,6 +10,7 @@
 
         <b-list-group flush>
           <b-list-group-item
+            v-if="person.location.state !== ''"
             style="cursor: pointer"
             @click="checkState(person)"
           >{{person.location.state}}</b-list-group-item>
@@ -24,7 +25,8 @@ import { eventBus } from "../main";
 export default {
   data() {
     return {
-      selectedUser: null
+      selectedUser: null,
+      persons: []
     };
   },
   props: ["personsCopy"],
@@ -33,7 +35,20 @@ export default {
       this.selectedUser = person;
       eventBus.$emit("selectedUser", this.selectedUser);
     }
-  }
+  },
+  created() {
+    eventBus.$on("correctAnswer", result => {
+      if (result) {
+        this.persons = this.personsCopy.forEach(person => {
+          if (person.location.state === this.selectedUser.location.state) {
+            person.location.state = "";
+          }
+        });
+        console.log(this.persons);
+      }
+    });
+  },
+  computed: {}
 };
 </script>
 

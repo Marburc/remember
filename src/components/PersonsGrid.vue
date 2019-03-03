@@ -21,7 +21,8 @@ export default {
   props: ["persons"],
   data() {
     return {
-      selectedUser: ""
+      selectedUser: "",
+      correctAnswer: false
     };
   },
   created() {
@@ -33,6 +34,8 @@ export default {
     checkUser(user) {
       if (user.login.username === this.selectedUser.login.username) {
         user.location.state = this.selectedUser.location.state;
+        this.correctAnswer = true;
+        eventBus.$emit("correctAnswer", this.correctAnswer);
       }
     }
   }
