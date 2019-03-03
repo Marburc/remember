@@ -2,14 +2,18 @@
   <div class="person row">
     <div v-for="(person) in persons" :key="person.login.username" class="b-col person text-center">
       <b-card no-body style="max-width: 11rem; " :img-src="person.picture.large" img-alt="Image">
-        <h4 slot="header">{{person.name.first}} {{person.name.last}}</h4>
+        <h4
+          @click="checkName(person)"
+          style="cursor: pointer"
+          slot="header"
+        >{{person.name.first}} {{person.name.last}}</h4>
 
         <b-list-group flush>
           <b-list-group-item
-            @click="checkUser(person)"
+            @click="checkState(person)"
             style="cursor: pointer"
           >{{person.location.state}}</b-list-group-item>
-          <b-list-group-item>{{person.dob.age}}</b-list-group-item>
+          <b-list-group-item style="cursor: pointer" @click="checkAge(person)">{{person.dob.age}}</b-list-group-item>
         </b-list-group>
       </b-card>
     </div>
@@ -22,7 +26,7 @@ export default {
   data() {
     return {
       selectedUser: "",
-      correctAnswer: false
+      correctAnswer: ""
     };
   },
   created() {
@@ -31,10 +35,25 @@ export default {
     });
   },
   methods: {
-    checkUser(user) {
+    checkState(user) {
       if (user.login.username === this.selectedUser.login.username) {
         user.location.state = this.selectedUser.location.state;
-        this.correctAnswer = true;
+        this.correctAnswer = "state";
+        eventBus.$emit("correctAnswer", this.correctAnswer);
+      }
+    },
+    checkAge(user) {
+      if (user.login.username === this.selectedUser.login.username) {
+        user.dob.age = this.selectedUser.dob.age;
+        this.correctAnswer = "age";
+        eventBus.$emit("correctAnswer", this.correctAnswer);
+      }
+    },
+    checkName(user) {
+      if (user.login.username === this.selectedUser.login.username) {
+        user.name.first = this.selectedUser.name.first;
+        user.name.last = this.selectedUser.name.last;
+        this.correctAnswer = "name";
         eventBus.$emit("correctAnswer", this.correctAnswer);
       }
     }
