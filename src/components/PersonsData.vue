@@ -31,36 +31,6 @@
       </transition-group>
     </div>
   </div>
-  <!-- <div v-if="gameIsRunning === true " class="person row">
-    <div
-      v-for="person in personsCopy"
-      :key="person.login.username"
-      class="b-col person text-center"
-    >
-      <b-card no-body style="max-width: 11rem;">
-        <h4
-          v-if="person.name.first !== ''"
-          style="cursor: pointer"
-          @click="checkState(person,'name')"
-          slot="header"
-        >{{person.name.first}} {{person.name.last}}</h4>
-
-        <b-list-group flush>
-          <b-list-group-item
-            v-if="person.location.state !== ''"
-            style="cursor: pointer"
-            @click="checkState(person,
-        'state')"
-          >{{person.location.state}}</b-list-group-item>
-          <b-list-group-item
-            v-if="person.dob.age !== ''"
-            style="cursor: pointer"
-            @click="checkState(person,'age')"
-          >{{person.dob.age}}</b-list-group-item>
-        </b-list-group>
-      </b-card>
-    </div>
-  </div>-->
 </template>
 <script>
 import { eventBus } from "../main";

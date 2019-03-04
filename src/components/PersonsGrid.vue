@@ -40,7 +40,7 @@
 <script>
 import { eventBus } from "../main";
 export default {
-  props: ["persons"],
+  props: ["persons", "points", "counter"],
   data() {
     return {
       gameIsRunning: false,

@@ -5,6 +5,7 @@
       :gameIsRunning="gameIsRunning"
       :startGame="startGame"
       :reset="reset"
+      :persons="persons"
     ></app-navbar>
 
     <div class="container">
@@ -12,6 +13,8 @@
         @updateCounter="counter = $event"
         @updatePoints="points = $event"
         :persons="persons"
+        :points="points"
+        :counter="counter"
       ></app-personsGrid>
       <app-personsData
         :gameIsRunning="gameIsRunning"
