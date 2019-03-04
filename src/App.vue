@@ -1,8 +1,14 @@
 <template>
   <div id="app ">
-    <app-navbar :startGame="startGame"></app-navbar>
+    <app-navbar :gameIsRunning="gameIsRunning" :startGame="startGame" :reset="reset"></app-navbar>
+    {{counter}}
+    {{points}}
     <div class="container">
-      <app-personsGrid :persons="persons"></app-personsGrid>
+      <app-personsGrid
+        @updateCounter="counter = $event"
+        @updatePoints="points = $event"
+        :persons="persons"
+      ></app-personsGrid>
       <app-personsData
         :gameIsRunning="gameIsRunning"
         :personsName="personsName"
@@ -21,6 +27,8 @@ export default {
   data() {
     return {
       gameIsRunning: false,
+      counter: 0,
+      points: 0,
       persons: [],
       personsAge: [],
       personsName: [],
@@ -54,6 +62,17 @@ export default {
         person.name.first = "";
         person.location.state = "";
         person.dob.age = "";
+      });
+    },
+    reset() {
+      this.counter = 0;
+      this.points = 0;
+      this.gameIsRunning = false;
+      axios.get("https://randomuser.me/api/?results=4&nat=de").then(users => {
+        this.persons = users.data.results;
+        this.personsName = JSON.parse(JSON.stringify(this.persons));
+        this.personsState = JSON.parse(JSON.stringify(this.persons));
+        this.personsAge = JSON.parse(JSON.stringify(this.persons));
       });
     }
   }
