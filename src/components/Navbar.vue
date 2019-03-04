@@ -4,6 +4,7 @@
       <b-navbar-brand href="#">Remember Me</b-navbar-brand>
 
       <b-navbar-nav>
+        <h4 class="mt-2" v-if="gameIsRunning === true">Punkte: {{points}}</h4>
         <!-- <b-nav-item href="#">Link</b-nav-item>
         <b-nav-item href="#" disabled>Disabled</b-nav-item>-->
       </b-navbar-nav>
@@ -36,7 +37,7 @@
 </template>
 <script>
 export default {
-  props: ["startGame", "reset", "gameIsRunning"]
+  props: ["startGame", "reset", "gameIsRunning", "points"]
 };
 </script>
 

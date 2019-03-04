@@ -43,6 +43,7 @@ export default {
   props: ["persons"],
   data() {
     return {
+      gameIsRunning: false,
       selectedUser: "",
       correctAnswer: "",
       selectedInfo: "",
@@ -58,36 +59,40 @@ export default {
   },
   methods: {
     checkUser(user) {
-      if (user.login.username === this.selectedUser.login.username) {
-        if (this.selectedInfo === "state") {
-          user.location.state = this.selectedUser.location.state;
-          this.correctAnswer = "state";
-          eventBus.$emit("correctAnswer", this.correctAnswer);
-          this.counter++;
-          this.$emit("updateCounter", this.counter);
-          this.points++;
-          this.$emit("updatePoins", this.points);
-        } else if (this.selectedInfo === "age") {
-          user.dob.age = this.selectedUser.dob.age;
-          this.correctAnswer = "age";
-          eventBus.$emit("correctAnswer", this.correctAnswer);
-          this.counter++;
-          this.$emit("updateCounter", this.counter);
-          this.points++;
-          this.$emit("updatePoints", this.points);
-        } else if (this.selectedInfo === "name") {
-          user.name.first = this.selectedUser.name.first;
-          user.name.last = this.selectedUser.name.last;
-          this.correctAnswer = "name";
-          eventBus.$emit("correctAnswer", this.correctAnswer);
-          this.counter++;
-          this.$emit("updateCounter", this.counter);
-          this.points++;
+      if (this.counter === this.persons.length * 3 - 1) {
+        alert("wass geht");
+      } else {
+        if (user.login.username === this.selectedUser.login.username) {
+          if (this.selectedInfo === "state") {
+            user.location.state = this.selectedUser.location.state;
+            this.correctAnswer = "state";
+            eventBus.$emit("correctAnswer", this.correctAnswer);
+            this.counter++;
+            this.$emit("updateCounter", this.counter);
+            this.points++;
+            this.$emit("updatePoins", this.points);
+          } else if (this.selectedInfo === "age") {
+            user.dob.age = this.selectedUser.dob.age;
+            this.correctAnswer = "age";
+            eventBus.$emit("correctAnswer", this.correctAnswer);
+            this.counter++;
+            this.$emit("updateCounter", this.counter);
+            this.points++;
+            this.$emit("updatePoints", this.points);
+          } else if (this.selectedInfo === "name") {
+            user.name.first = this.selectedUser.name.first;
+            user.name.last = this.selectedUser.name.last;
+            this.correctAnswer = "name";
+            eventBus.$emit("correctAnswer", this.correctAnswer);
+            this.counter++;
+            this.$emit("updateCounter", this.counter);
+            this.points++;
+            this.$emit("updatePoints", this.points);
+          }
+        } else {
+          this.points--;
           this.$emit("updatePoints", this.points);
         }
-      } else {
-        this.points--;
-        this.$emit("updatePoints", this.points);
       }
     }
   }
