@@ -77,6 +77,8 @@ export default {
     checkState(person, info) {
       this.selectedInfo = info;
       this.selectedUser = person;
+      console.log("personsdata: " + this.selectedInfo);
+      console.log("personsdata: " + this.selectedUser);
       eventBus.$emit("selectedUser", this.selectedUser, this.selectedInfo);
     }
   },

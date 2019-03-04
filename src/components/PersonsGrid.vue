@@ -62,14 +62,18 @@ export default {
       if (user.login.username === this.selectedUser.login.username) {
         if (this.selectedInfo === "state") {
           user.location.state = this.selectedUser.location.state;
+
           this.corrAnswer("state");
+          console.log(user.login.username);
         } else if (this.selectedInfo === "age") {
           user.dob.age = this.selectedUser.dob.age;
           this.corrAnswer("age");
+          console.log(user.login.username);
         } else if (this.selectedInfo === "name") {
           user.name.first = this.selectedUser.name.first;
           user.name.last = this.selectedUser.name.last;
           this.corrAnswer("name");
+          console.log(user.login.username);
         }
       } else {
         this.points--;
@@ -83,6 +87,7 @@ export default {
       this.$emit("updateCounter", this.counter);
       this.points++;
       this.$emit("updatePoints", this.points);
+      this.selectedUser = "";
     }
   }
 };
