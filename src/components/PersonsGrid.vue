@@ -13,12 +13,12 @@
           :img-src="person.picture.large"
           img-alt="Image"
         >
-          <h4
+          <h5
             v-if="person.name.first !== ''"
             @click="checkName(person)"
             style="cursor: pointer"
             slot="header"
-          >{{person.name.first}} {{person.name.last}}</h4>
+          >{{person.name.first}} {{person.name.last}}</h5>
 
           <b-list-group flush>
             <b-list-group-item

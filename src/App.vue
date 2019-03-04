@@ -3,7 +3,12 @@
     <app-navbar :startGame="startGame"></app-navbar>
     <div class="container">
       <app-personsGrid :persons="persons"></app-personsGrid>
-      <app-personsData :gameIsRunning="gameIsRunning" :personsCopy="personsCopy"></app-personsData>
+      <app-personsData
+        :gameIsRunning="gameIsRunning"
+        :personsName="personsName"
+        :personsAge="personsAge"
+        :personsState="personsState"
+      ></app-personsData>
     </div>
   </div>
 </template>
@@ -17,7 +22,10 @@ export default {
     return {
       gameIsRunning: false,
       persons: [],
-      personsCopy: null,
+      personsAge: [],
+      personsName: [],
+      personsState: [],
+      personsName: null,
       selectedUser: null
     };
   },
@@ -29,13 +37,18 @@ export default {
   created() {
     axios.get("https://randomuser.me/api/?results=4&nat=de").then(users => {
       this.persons = users.data.results;
-      this.personsCopy = JSON.parse(JSON.stringify(this.persons));
+      this.personsName = JSON.parse(JSON.stringify(this.persons));
+      this.personsState = JSON.parse(JSON.stringify(this.persons));
+      this.personsAge = JSON.parse(JSON.stringify(this.persons));
     });
   },
   methods: {
     startGame() {
       this.gameIsRunning = true;
       this.persons = _.shuffle(this.persons);
+      this.personsName = _.shuffle(this.personsName);
+      this.personsAge = _.shuffle(this.personsAge);
+      this.personsState = _.shuffle(this.personsState);
       this.persons.forEach(person => {
         person.name.last = "";
         person.name.first = "";
