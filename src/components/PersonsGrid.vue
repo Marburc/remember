@@ -1,6 +1,19 @@
 <template>
   <div>
-    <transition-group name="flip-list" class="person row">
+    <transition-group class="row" name="flip-list">
+      <div
+        class="person"
+        v-for="(person) in persons"
+        :key="person.login.username"
+        @click="checkUser(person)"
+      >
+        <img :src="person.picture.large">
+        <p v-if="person.name.first !== ''">{{person.name.first}} {{person.name.last}}</p>
+        <p v-if="person.location.state !== ''">{{person.location.state}} {{person.name.last}}</p>
+        <p v-if="person.dob.age !== ''">{{person.dob.age}}</p>
+      </div>
+    </transition-group>
+    <!-- <transition-group name="flip-list" class="person row">
       <div
         v-for="(person) in persons"
         :key="person.login.username"
@@ -9,18 +22,16 @@
         <b-card
           @click="checkUser(person)"
           no-body
-          style="max-width: 11rem; cursor: pointer"
+          style="max-width: 21rem; cursor: pointer; "
           :img-src="person.picture.large"
           img-alt="Image"
         >
-          <h5
-            v-if="person.name.first !== ''"
-            @click="checkName(person)"
-            style="cursor: pointer"
-            slot="header"
-          >{{person.name.first}} {{person.name.last}}</h5>
-
           <b-list-group flush>
+            <b-list-group-item
+              v-if="person.name.first !== ''"
+              @click="checkName(person)"
+              style="cursor: pointer"
+            >{{person.name.first}} {{person.name.last}}</b-list-group-item>
             <b-list-group-item
               v-if="person.location.state !== ''"
               @click="checkState(person)"
@@ -34,7 +45,7 @@
           </b-list-group>
         </b-card>
       </div>
-    </transition-group>
+    </transition-group>-->
   </div>
 </template>
 <script>
@@ -64,16 +75,13 @@ export default {
           user.location.state = this.selectedUser.location.state;
 
           this.corrAnswer("state");
-          console.log(user.login.username);
         } else if (this.selectedInfo === "age") {
           user.dob.age = this.selectedUser.dob.age;
           this.corrAnswer("age");
-          console.log(user.login.username);
         } else if (this.selectedInfo === "name") {
           user.name.first = this.selectedUser.name.first;
           user.name.last = this.selectedUser.name.last;
           this.corrAnswer("name");
-          console.log(user.login.username);
         }
       } else {
         this.points--;
@@ -95,12 +103,14 @@ export default {
 
 <style>
 .person {
-  margin: 10px auto;
+  margin-right: 30px;
 }
-.card-img {
-  max-width: 180px !important;
-  max-height: 180px !important;
+.person img {
+  width: 180px;
+  height: 180px;
   object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
 }
 .flip-list-move {
   transition: transform 1s;

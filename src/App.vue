@@ -50,7 +50,7 @@ export default {
     "app-personsData": PersonsData
   },
   created() {
-    axios.get("https://randomuser.me/api/?results=2&nat=de").then(users => {
+    axios.get("https://randomuser.me/api/?results=3&nat=de").then(users => {
       this.persons = users.data.results;
       this.personsName = JSON.parse(JSON.stringify(this.persons));
       this.personsState = JSON.parse(JSON.stringify(this.persons));
@@ -75,7 +75,7 @@ export default {
       this.counter = 0;
       this.points = 0;
       this.gameIsRunning = false;
-      axios.get("https://randomuser.me/api/?results=2&nat=de").then(users => {
+      axios.get("https://randomuser.me/api/?results=3&nat=de").then(users => {
         this.persons = users.data.results;
         this.personsName = JSON.parse(JSON.stringify(this.persons));
         this.personsState = JSON.parse(JSON.stringify(this.persons));
