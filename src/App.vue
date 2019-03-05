@@ -39,6 +39,7 @@ import PersonsData from "./components/PersonsData.vue";
 export default {
   data() {
     return {
+      numberUsers: 6,
       markAsCorrect: false,
       gameIsRunning: false,
       counter: 0,
@@ -57,12 +58,14 @@ export default {
     "app-personsData": PersonsData
   },
   created() {
-    axios.get("https://randomuser.me/api/?results=3&nat=de").then(users => {
-      this.persons = users.data.results;
-      this.personsName = JSON.parse(JSON.stringify(this.persons));
-      this.personsState = JSON.parse(JSON.stringify(this.persons));
-      this.personsAge = JSON.parse(JSON.stringify(this.persons));
-    });
+    axios
+      .get(`https://randomuser.me/api/?results=${this.numberUsers}&nat=de`)
+      .then(users => {
+        this.persons = users.data.results;
+        this.personsName = JSON.parse(JSON.stringify(this.persons));
+        this.personsState = JSON.parse(JSON.stringify(this.persons));
+        this.personsAge = JSON.parse(JSON.stringify(this.persons));
+      });
   },
   methods: {
     startGame() {
@@ -84,12 +87,14 @@ export default {
       this.counter = 0;
       this.points = 0;
       this.gameIsRunning = false;
-      axios.get("https://randomuser.me/api/?results=3&nat=de").then(users => {
-        this.persons = users.data.results;
-        this.personsName = JSON.parse(JSON.stringify(this.persons));
-        this.personsState = JSON.parse(JSON.stringify(this.persons));
-        this.personsAge = JSON.parse(JSON.stringify(this.persons));
-      });
+      axios
+        .get(`https://randomuser.me/api/?results=${this.numberUsers}&nat=de`)
+        .then(users => {
+          this.persons = users.data.results;
+          this.personsName = JSON.parse(JSON.stringify(this.persons));
+          this.personsState = JSON.parse(JSON.stringify(this.persons));
+          this.personsAge = JSON.parse(JSON.stringify(this.persons));
+        });
     }
   }
 };
