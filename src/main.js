@@ -7,6 +7,9 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueLodash from 'vue-lodash'
 
 const options = { name: 'lodash' } // customize the way you want to call it
+Vue.filter('toUpperCase', function (value) {
+  return value.charAt(0).toUpperCase() + value.slice(1)
+});
 
 
 export const eventBus = new Vue()

@@ -134,4 +134,8 @@ export default {
   -moz-box-shadow: 8px 10px 38px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 8px 10px 38px 0px rgba(0, 0, 0, 0.75);
 }
+.info h4 {
+  color: rgb(71, 71, 71);
+  line-height: 2rem;
+}
 </style>

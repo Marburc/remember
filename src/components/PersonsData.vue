@@ -8,7 +8,7 @@
           v-for="person in personsName"
           :key="person.login.username"
           @click="checkState(person,'name')"
-        >{{person.name.first}} {{person.name.last}}</button>
+        >{{person.name.first | toUpperCase }} {{person.name.last | toUpperCase}}</button>
       </transition-group>
     </div>
     <div>
@@ -30,7 +30,7 @@
           :key="person.login.username"
           v-for="person in personsState"
           @click="checkState(person,'state')"
-        >{{person.location.state}}</button>
+        >{{person.location.state | toUpperCase}}</button>
       </transition-group>
     </div>
   </div>
@@ -96,6 +96,7 @@ export default {
 }
 .person p {
   font-weight: bold;
+  color: rgb(71, 71, 71);
   /* background-color: rgb(171, 171, 187); */
   border: 0;
   outline: 0;

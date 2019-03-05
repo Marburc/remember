@@ -1,17 +1,10 @@
 <template>
   <div class="welcome">
+    <p class="h4">Hi, Lust dein Erinnerungsvermögen zu verbessern?
+      <br>Wähle den Schwierigkeitsgrad aus und klicke rechts oben auf "Spiel Starten"!
+    </p>
     <b-form inline>
-      <label
-        class="mr-sm-2 h4 mb-4"
-        for="inlineFormCustomSelectPref"
-      >Hi, Lust dein Erinnerungsvermögen zu verbessern?
-        <br>Wähle den Schwierigkeitsgrad aus und klicke rechts oben auf "Spiel Starten"!
-      </label>
-      <b-form-select
-        class="mb-2 mr-sm-2 mb-sm-0"
-        v-model="selectedUsers"
-        id="inlineFormCustomSelectPref"
-      >
+      <b-form-select class="selectField" v-model="selectedUsers" id="inlineFormCustomSelectPref">
         <option class v-for="(user,index) in users" :key="index" :selected="user == 4">{{user}}</option>
       </b-form-select>
     </b-form>
@@ -43,12 +36,26 @@ export default {
 </script>
 <style>
 .welcome {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+  text-align: center;
   border: 2px solid lightblue;
   padding: 50px;
   margin-top: 100px;
   -webkit-box-shadow: 8px 10px 38px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 8px 10px 38px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 8px 10px 38px 0px rgba(0, 0, 0, 0.75);
+}
+.welcome p {
+  display: block;
+  line-height: 2rem;
+  color: rgb(71, 71, 71);
+}
+.selectField {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50px;
 }
 </style>
 

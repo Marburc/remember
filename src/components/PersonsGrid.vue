@@ -11,11 +11,11 @@
         <p
           :class="{correct: markAsCorrect}"
           v-if="person.name.first !== ''"
-        >{{person.name.first}} {{person.name.last}}</p>
+        >{{person.name.first | toUpperCase}} {{person.name.last | toUpperCase}}</p>
         <p
           :class="{correct: markAsCorrect}"
           v-if="person.location.state !== ''"
-        >{{person.location.state}}</p>
+        >{{person.location.state | toUpperCase}}</p>
         <p :class="{correct: markAsCorrect}" v-if="person.dob.age !== ''">{{person.dob.age}}</p>
       </div>
     </transition-group>
