@@ -12,8 +12,13 @@
             size="sm"
             class="my-2 my-sm-0 mx-2"
             type="submit"
-          >Start Game</b-button>
-          <b-button @click.prevent="reset" size="sm" class="my-2 my-sm-0" type="submit">Reset</b-button>
+          >Spiel Starten</b-button>
+          <b-button
+            @click.prevent="reset"
+            size="sm"
+            class="my-2 my-sm-0"
+            type="submit"
+          >Spiel Beenden</b-button>
 
           <!-- <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
           <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>-->

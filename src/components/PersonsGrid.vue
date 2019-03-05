@@ -8,50 +8,23 @@
         @click="checkUser(person)"
       >
         <img :src="person.picture.large">
-        <p v-if="person.name.first !== ''">{{person.name.first}} {{person.name.last}}</p>
-        <p v-if="person.location.state !== ''">{{person.location.state}} {{person.name.last}}</p>
-        <p v-if="person.dob.age !== ''">{{person.dob.age}}</p>
+        <p
+          :class="{correct: markAsCorrect}"
+          v-if="person.name.first !== ''"
+        >{{person.name.first}} {{person.name.last}}</p>
+        <p
+          :class="{correct: markAsCorrect}"
+          v-if="person.location.state !== ''"
+        >{{person.location.state}} {{person.name.last}}</p>
+        <p :class="{correct: markAsCorrect}" v-if="person.dob.age !== ''">{{person.dob.age}}</p>
       </div>
     </transition-group>
-    <!-- <transition-group name="flip-list" class="person row">
-      <div
-        v-for="(person) in persons"
-        :key="person.login.username"
-        class="b-col person text-center"
-      >
-        <b-card
-          @click="checkUser(person)"
-          no-body
-          style="max-width: 21rem; cursor: pointer; "
-          :img-src="person.picture.large"
-          img-alt="Image"
-        >
-          <b-list-group flush>
-            <b-list-group-item
-              v-if="person.name.first !== ''"
-              @click="checkName(person)"
-              style="cursor: pointer"
-            >{{person.name.first}} {{person.name.last}}</b-list-group-item>
-            <b-list-group-item
-              v-if="person.location.state !== ''"
-              @click="checkState(person)"
-              style="cursor: pointer"
-            >{{person.location.state}}</b-list-group-item>
-            <b-list-group-item
-              v-if="person.dob.age !== ''"
-              style="cursor: pointer"
-              @click="checkAge(person)"
-            >{{person.dob.age}}</b-list-group-item>
-          </b-list-group>
-        </b-card>
-      </div>
-    </transition-group>-->
   </div>
 </template>
 <script>
 import { eventBus } from "../main";
 export default {
-  props: ["persons", "points", "counter"],
+  props: ["persons", "points", "counter", "markAsCorrect"],
   data() {
     return {
       gameIsRunning: false,
@@ -96,6 +69,8 @@ export default {
       this.points++;
       this.$emit("updatePoints", this.points);
       this.selectedUser = "";
+      this.markAsCorrect = true;
+      this.$emit("changeCorrect", this.markAsCorrect);
     }
   }
 };
@@ -117,6 +92,9 @@ export default {
 }
 .flip-list-move {
   transition: transform 1s;
+}
+.correct {
+  background-color: lightgreen;
 }
 </style>
 

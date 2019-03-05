@@ -16,6 +16,8 @@
       <app-personsGrid
         @updateCounter="counter = $event"
         @updatePoints="points = $event"
+        :markAsCorrect="markAsCorrect"
+        @changeCorrect="markAsCorrect = $event"
         :persons="persons"
         :points="points"
         :counter="counter"
@@ -37,6 +39,7 @@ import PersonsData from "./components/PersonsData.vue";
 export default {
   data() {
     return {
+      markAsCorrect: false,
       gameIsRunning: false,
       counter: 0,
       points: 0,
@@ -73,9 +76,11 @@ export default {
         person.name.first = "";
         person.location.state = "";
         person.dob.age = "";
+        console.log(this.markAsCorrect);
       });
     },
     reset() {
+      this.markAsCorrect = false;
       this.counter = 0;
       this.points = 0;
       this.gameIsRunning = false;
@@ -84,6 +89,7 @@ export default {
         this.personsName = JSON.parse(JSON.stringify(this.persons));
         this.personsState = JSON.parse(JSON.stringify(this.persons));
         this.personsAge = JSON.parse(JSON.stringify(this.persons));
+        console.log(this.markAsCorrect);
       });
     }
   }
