@@ -15,7 +15,7 @@
         <p
           :class="{correct: markAsCorrect}"
           v-if="person.location.state !== ''"
-        >{{person.location.state}} {{person.name.last}}</p>
+        >{{person.location.state}}</p>
         <p :class="{correct: markAsCorrect}" v-if="person.dob.age !== ''">{{person.dob.age}}</p>
       </div>
     </transition-group>
@@ -79,14 +79,10 @@ export default {
 .person {
   margin-right: 30px;
 }
-.person p {
-  -webkit-box-shadow: 8px 10px 27px -9px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 8px 10px 27px -9px rgba(0, 0, 0, 0.75);
-  box-shadow: 8px 10px 27px -9px rgba(0, 0, 0, 0.75);
-}
+
 .person img {
-  width: 180px;
-  height: 180px;
+  width: 170px;
+  height: 170px;
   object-fit: cover;
   border-radius: 50%;
   cursor: pointer;
@@ -102,7 +98,7 @@ export default {
   transition: transform 1s;
 }
 .correct {
-  background-color: lightgreen;
+  background-color: rgba(67, 253, 67, 0.287);
 }
 </style>
 

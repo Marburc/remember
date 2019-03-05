@@ -9,36 +9,34 @@
       :persons="persons"
     ></app-navbar>
 
-    <div class="container">
-      <app-welcome
-        v-if="usersRendered === false"
-        :numberUsers="numberUsers"
-        @amountUsers="numberUsers = $event"
-      ></app-welcome>
-      <div class="info" v-if="usersRendered && gameIsRunning === false">
-        <h4>Merke Dir die Personen und klicke Start!</h4>
-        <button class="btn btn-primary" @click="mix">Start</button>
-      </div>
-      <h4
-        class="mt-4 score"
-        v-if="gameIsRunning === true"
-      >Punkte: {{points}} / {{this.persons.length * 4}}</h4>
-      <app-personsGrid
-        @updateCounter="counter = $event"
-        @updatePoints="points = $event"
-        :markAsCorrect="markAsCorrect"
-        @changeCorrect="markAsCorrect = $event"
-        :persons="persons"
-        :points="points"
-        :counter="counter"
-      ></app-personsGrid>
-      <app-personsData
-        :gameIsRunning="gameIsRunning"
-        :personsName="personsName"
-        :personsAge="personsAge"
-        :personsState="personsState"
-      ></app-personsData>
+    <app-welcome
+      v-if="usersRendered === false"
+      :numberUsers="numberUsers"
+      @amountUsers="numberUsers = $event"
+    ></app-welcome>
+    <div class="info" v-if="usersRendered && gameIsRunning === false">
+      <h4>Merke Dir die Personen und klicke Start!</h4>
+      <button class="btn btn-primary" @click="mix">Start</button>
     </div>
+    <h4
+      class="mt-4 score"
+      v-if="gameIsRunning === true"
+    >Punkte: {{points}} / {{this.persons.length * 4}}</h4>
+    <app-personsGrid
+      @updateCounter="counter = $event"
+      @updatePoints="points = $event"
+      :markAsCorrect="markAsCorrect"
+      @changeCorrect="markAsCorrect = $event"
+      :persons="persons"
+      :points="points"
+      :counter="counter"
+    ></app-personsGrid>
+    <app-personsData
+      :gameIsRunning="gameIsRunning"
+      :personsName="personsName"
+      :personsAge="personsAge"
+      :personsState="personsState"
+    ></app-personsData>
   </div>
 </template>
 <script>
