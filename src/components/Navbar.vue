@@ -14,7 +14,8 @@
             type="submit"
           >Spiel Starten</b-button>
           <b-button
-            @click.prevent="reset"
+            v-if="gameIsRunning === true"
+            @click="reset"
             size="sm"
             class="my-2 my-sm-0"
             type="submit"

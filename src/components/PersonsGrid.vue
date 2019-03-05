@@ -47,7 +47,6 @@ export default {
       if (user.login.username === this.selectedUser.login.username) {
         if (this.selectedInfo === "state") {
           user.location.state = this.selectedUser.location.state;
-
           this.corrAnswer("state");
         } else if (this.selectedInfo === "age") {
           user.dob.age = this.selectedUser.dob.age;
@@ -58,18 +57,18 @@ export default {
           this.corrAnswer("name");
         }
       } else {
-        this.$emit("updatePoints", this.internalPoints--);
+        this.internalPoints--;
+        this.$emit("updatePoints", this.internalPoints);
       }
     },
     corrAnswer(type) {
       this.correctAnswer = type;
       eventBus.$emit("correctAnswer", this.correctAnswer);
-
-      this.$emit("updateCounter", this.internalCounter++);
-
-      this.$emit("updatePoints", this.internalPoints++);
+      this.internalCounter++;
+      this.$emit("updateCounter", this.internalCounter);
+      this.internalPoints++;
+      this.$emit("updatePoints", this.internalPoints);
       this.selectedUser = "";
-
       this.$emit("changeCorrect", (this.internalMarkAsCorrect = true));
     }
   }
