@@ -31,8 +31,9 @@ export default {
       selectedUser: "",
       correctAnswer: "",
       selectedInfo: "",
-      counter: 0,
-      points: 0
+      internalMarkAsCorrect: this.markAsCorrect,
+      internalPoints: this.points,
+      internalCounter: this.counter
     };
   },
   created() {
@@ -57,20 +58,19 @@ export default {
           this.corrAnswer("name");
         }
       } else {
-        this.points--;
-        this.$emit("updatePoints", this.points);
+        this.$emit("updatePoints", this.internalPoints--);
       }
     },
     corrAnswer(type) {
       this.correctAnswer = type;
       eventBus.$emit("correctAnswer", this.correctAnswer);
-      this.counter++;
-      this.$emit("updateCounter", this.counter);
-      this.points++;
-      this.$emit("updatePoints", this.points);
+
+      this.$emit("updateCounter", this.internalCounter++);
+
+      this.$emit("updatePoints", this.internalPoints++);
       this.selectedUser = "";
-      this.markAsCorrect = true;
-      this.$emit("changeCorrect", this.markAsCorrect);
+
+      this.$emit("changeCorrect", (this.internalMarkAsCorrect = true));
     }
   }
 };

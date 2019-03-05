@@ -89,7 +89,6 @@ export default {
         this.personsName = JSON.parse(JSON.stringify(this.persons));
         this.personsState = JSON.parse(JSON.stringify(this.persons));
         this.personsAge = JSON.parse(JSON.stringify(this.persons));
-        console.log(this.markAsCorrect);
       });
     }
   }
