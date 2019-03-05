@@ -40,7 +40,7 @@ export default {
   margin-right: auto;
   max-width: 900px;
   text-align: center;
-  border: 2px solid lightblue;
+  border: 2px solid rgba(69, 78, 87, 0.678);
   padding: 50px;
   margin-top: 100px;
   -webkit-box-shadow: 8px 10px 38px 0px rgba(0, 0, 0, 0.75);

@@ -113,7 +113,7 @@ export default {
   margin-right: auto;
   margin-bottom: 40px;
   margin-top: 40px;
-  border: 2px solid lightblue;
+  border: 2px solid rgba(69, 78, 87, 0.678);
   max-width: 400px;
   padding: 20px;
   text-align: center;
