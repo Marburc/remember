@@ -39,7 +39,7 @@ import PersonsData from "./components/PersonsData.vue";
 export default {
   data() {
     return {
-      numberUsers: 3,
+      numberUsers: 4,
       markAsCorrect: false,
       gameIsRunning: false,
       counter: 0,
