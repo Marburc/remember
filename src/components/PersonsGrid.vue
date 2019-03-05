@@ -111,6 +111,9 @@ export default {
   object-fit: cover;
   border-radius: 50%;
   cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid lightgray;
 }
 .flip-list-move {
   transition: transform 1s;

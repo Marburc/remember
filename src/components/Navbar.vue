@@ -1,16 +1,7 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="info">
-      <b-navbar-brand href="#">Remember Me</b-navbar-brand>
-
-      <b-navbar-nav>
-        <h4
-          class="mt-2"
-          v-if="gameIsRunning === true"
-        >Punkte: {{points}} / {{this.persons.length * 4}}</h4>
-        <!-- <b-nav-item href="#">Link</b-nav-item>
-        <b-nav-item href="#" disabled>Disabled</b-nav-item>-->
-      </b-navbar-nav>
+    <b-navbar toggleable="lg" type="dark" variant="dark">
+      <b-navbar-brand href="#">Remember Me???</b-navbar-brand>
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
@@ -43,4 +34,6 @@ export default {
   props: ["startGame", "reset", "gameIsRunning", "points", "persons"]
 };
 </script>
+
+
 

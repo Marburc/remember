@@ -9,6 +9,10 @@
     ></app-navbar>
 
     <div class="container">
+      <h4
+        class="mt-4 score"
+        v-if="gameIsRunning === true"
+      >Punkte: {{points}} / {{this.persons.length * 4}}</h4>
       <app-personsGrid
         @updateCounter="counter = $event"
         @updatePoints="points = $event"
@@ -88,4 +92,7 @@ export default {
 
 
 <style>
+.score {
+  text-align: center;
+}
 </style>

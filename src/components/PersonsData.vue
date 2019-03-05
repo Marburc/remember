@@ -81,7 +81,7 @@ export default {
 };
 </script>
 
-<style>
+<style >
 .person {
   margin: 10px auto;
   text-align: center;
@@ -89,8 +89,9 @@ export default {
 .person p {
   list-style: none;
   cursor: pointer;
-  margin: 20px;
+  margin: 10px;
   border: 1px solid black;
+  border-radius: 3px;
   padding: 5px;
 }
 
