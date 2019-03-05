@@ -4,7 +4,9 @@
       <label
         class="mr-sm-2 h4 mb-4"
         for="inlineFormCustomSelectPref"
-      >Wähle den Schwierigkeitsgrad aus und klicke rechts oben auf "Spiel Starten"!</label>
+      >Hi, Lust dein Erinnerungsvermögen zu verbessern?
+        <br>Wähle den Schwierigkeitsgrad aus und klicke rechts oben auf "Spiel Starten"!
+      </label>
       <b-form-select
         class="mb-2 mr-sm-2 mb-sm-0"
         v-model="selectedUsers"
