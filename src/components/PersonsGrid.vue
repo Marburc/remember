@@ -79,6 +79,11 @@ export default {
 .person {
   margin-right: 30px;
 }
+.person p {
+  -webkit-box-shadow: 8px 10px 27px -9px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 8px 10px 27px -9px rgba(0, 0, 0, 0.75);
+  box-shadow: 8px 10px 27px -9px rgba(0, 0, 0, 0.75);
+}
 .person img {
   width: 180px;
   height: 180px;
@@ -88,6 +93,10 @@ export default {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 1px solid lightgray;
+
+  -webkit-box-shadow: 8px 10px 38px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 8px 10px 38px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 8px 10px 38px 0px rgba(0, 0, 0, 0.75);
 }
 .flip-list-move {
   transition: transform 1s;

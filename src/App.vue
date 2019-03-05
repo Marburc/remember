@@ -15,9 +15,9 @@
         :numberUsers="numberUsers"
         @amountUsers="numberUsers = $event"
       ></app-welcome>
-      <div v-if="usersRendered && gameIsRunning === false">
-        <h4>Merke Dir die Personen und Drücke LOS!</h4>
-        <button @click="mix">Los</button>
+      <div class="info" v-if="usersRendered && gameIsRunning === false">
+        <h4>Merke Dir die Personen und klicke Start!</h4>
+        <button class="btn btn-primary" @click="mix">Start</button>
       </div>
       <h4
         class="mt-4 score"
@@ -111,5 +111,29 @@ export default {
 <style>
 .score {
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  border: 2px solid lightblue;
+  max-width: 400px;
+  padding: 20px;
+  text-align: center;
+  -webkit-box-shadow: 8px 10px 27px -9px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 8px 10px 27px -9px rgba(0, 0, 0, 0.75);
+  box-shadow: 8px 10px 27px -9px rgba(0, 0, 0, 0.75);
+}
+.info {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  border: 2px solid lightblue;
+  max-width: 400px;
+  padding: 20px;
+  text-align: center;
+  -webkit-box-shadow: 8px 10px 38px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 8px 10px 38px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 8px 10px 38px 0px rgba(0, 0, 0, 0.75);
 }
 </style>
