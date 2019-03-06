@@ -1,5 +1,5 @@
 <template>
-  <div class="personGroup">
+  <div class="personGroup" v-if="gameIsRunning === true">
     <div>
       <transition-group name="flip-list" class="person row">
         <button
