@@ -1,5 +1,5 @@
 <template>
-  <div class="personGroup" v-if="gameIsRunning === true">
+  <div class="personGroup">
     <div>
       <transition-group name="flip-list" class="person row">
         <button
@@ -42,7 +42,8 @@ export default {
     return {
       selectedUser: null,
       persons: [],
-      selectedInfo: ""
+      selectedInfo: "",
+      imgToggle: false
     };
   },
   props: ["personsName", "personsState", "personsAge", "gameIsRunning"],

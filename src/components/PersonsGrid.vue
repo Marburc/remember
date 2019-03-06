@@ -9,14 +9,17 @@
       >
         <img :src="person.picture.large">
         <p
-          :class="{correct: markAsCorrect}"
+          :class="{correct: markAsCorrect, animated: markAsCorrect, swing: markAsCorrect}"
           v-if="person.name.first !== ''"
         >{{person.name.first | toUpperCase}} {{person.name.last | toUpperCase}}</p>
         <p
-          :class="{correct: markAsCorrect}"
+          :class="{correct: markAsCorrect, animated: markAsCorrect, flipInX: markAsCorrect}"
           v-if="person.location.state !== ''"
         >{{person.location.state | toUpperCase}}</p>
-        <p :class="{correct: markAsCorrect}" v-if="person.dob.age !== ''">{{person.dob.age}}</p>
+        <p
+          :class="{correct: markAsCorrect, animated: markAsCorrect, rubberBand: markAsCorrect}"
+          v-if="person.dob.age !== ''"
+        >{{person.dob.age}}</p>
       </div>
     </transition-group>
   </div>
@@ -62,6 +65,7 @@ export default {
       }
     },
     corrAnswer(type) {
+      this.imageToggle = true;
       this.correctAnswer = type;
       eventBus.$emit("correctAnswer", this.correctAnswer);
       this.internalCounter++;
