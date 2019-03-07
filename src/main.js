@@ -11,6 +11,7 @@ Vue.filter('toUpperCase', function (value) {
   return value.charAt(0).toUpperCase() + value.slice(1)
 });
 
+let myTrack = new Audio("../audio/cash.mp3");
 
 export const eventBus = new Vue()
 

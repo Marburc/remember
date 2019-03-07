@@ -16,7 +16,7 @@
     ></app-welcome>
     <div class="info" v-if="usersRendered && gameIsRunning === false">
       <h4>Merke Dir die Personen und klicke Start!</h4>
-      <button class="btn btn-primary" @click="mix">Start</button>
+      <b-button class="btn px-4" @click="mix">Start</b-button>
     </div>
     <h4
       class="mt-4 score"

@@ -74,6 +74,7 @@ export default {
       this.$emit("updatePoints", this.internalPoints);
       this.selectedUser = "";
       this.$emit("changeCorrect", (this.internalMarkAsCorrect = true));
+      myTrack.play();
     }
   }
 };
