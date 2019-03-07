@@ -8,6 +8,8 @@
       :reset="reset"
       :persons="persons"
     ></app-navbar>
+    {{counter}}
+    {{gameFinished}}
     <app-gameOver v-if="gameFinished === true" :points="points" :persons="persons" :reset="reset"></app-gameOver>
 
     <app-welcome
@@ -78,6 +80,7 @@ export default {
       axios
         .get(`https://randomuser.me/api/?results=${this.numberUsers}&nat=de`)
         .then(users => {
+          this.counter = 0;
           this.persons = users.data.results;
           this.personsName = JSON.parse(JSON.stringify(this.persons));
           this.personsState = JSON.parse(JSON.stringify(this.persons));
@@ -88,7 +91,7 @@ export default {
     reset() {
       this.usersRendered = false;
       this.markAsCorrect = false;
-      this.counter = 0;
+
       this.points = 0;
       this.gameIsRunning = false;
       this.gameFinished = false;
