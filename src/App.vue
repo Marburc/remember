@@ -8,6 +8,7 @@
       :reset="reset"
       :persons="persons"
     ></app-navbar>
+    <app-gameOver :points="points" :persons="persons"></app-gameOver>
 
     <app-welcome
       v-if="usersRendered === false"
@@ -21,7 +22,7 @@
     <h4
       class="mt-4 score"
       v-if="gameIsRunning === true"
-    >Punkte: {{points}} / {{this.persons.length * 4}}</h4>
+    >Punkte: {{points}} / {{this.persons.length * 3}}</h4>
     <app-personsGrid
       @updateCounter="counter = $event"
       @updatePoints="points = $event"
@@ -40,6 +41,7 @@
   </div>
 </template>
 <script>
+import GameOver from "./components/gameOver.vue";
 import Welcome from "./components/Welcome";
 import axios from "axios";
 import PersonsGrid from "./components/PersonsGrid.vue";
@@ -53,8 +55,8 @@ export default {
       usersRendered: false,
       gameIsRunning: false,
       counter: 0,
-      points: 0,
-      persons: [],
+      points: 8,
+      persons: [2, 3, 3],
       personsAge: [],
       personsName: [],
       personsState: [],
@@ -66,7 +68,8 @@ export default {
     "app-navbar": Navbar,
     "app-personsGrid": PersonsGrid,
     "app-personsData": PersonsData,
-    "app-welcome": Welcome
+    "app-welcome": Welcome,
+    "app-gameOver": GameOver
   },
   created() {},
   methods: {

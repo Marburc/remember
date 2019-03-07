@@ -5,7 +5,7 @@
     </p>
     <b-form inline>
       <b-form-select class="selectField" v-model="selectedUsers" id="inlineFormCustomSelectPref">
-        <option class v-for="(user,index) in users" :key="index" :selected="user == 4">{{user}}</option>
+        <option class v-for="(user,index) in users" :key="index">{{user}}</option>
       </b-form-select>
     </b-form>
   </div>
@@ -16,19 +16,17 @@ export default {
   props: ["numberUsers"],
   data() {
     return {
-      users: [3, 4, 5, 6, 7, 8],
-      selectedUsers: 2
+      users: [2, 3, 4, 5, 6, 7, 8],
+      selectedUsers: ""
     };
   },
   methods: {
     confirmUsers() {
       this.$emit("amountUsers", this.users);
-      console.log(this.selectedUsers);
     }
   },
   watch: {
     selectedUsers(newVal, oldVal) {
-      console.log(newVal);
       this.$emit("amountUsers", newVal);
     }
   }
@@ -49,7 +47,7 @@ export default {
 }
 .welcome p {
   display: block;
-  line-height: 2rem;
+  line-height: 2.2rem;
   color: rgb(71, 71, 71);
 }
 .selectField {
