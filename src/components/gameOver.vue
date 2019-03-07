@@ -1,13 +1,13 @@
 <template>
   <div class="gameOver">
     <h4>{{changeMsg}}</h4>
-    <b-button class="btn px-4" @click="mix">Neues Spiel</b-button>
+    <b-button @click="reset" class="btn px-4">Neues Spiel</b-button>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["points", "persons"],
+  props: ["points", "persons", "reset"],
   data() {
     return {
       msg: null

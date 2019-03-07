@@ -36,7 +36,8 @@ export default {
       selectedInfo: "",
       internalMarkAsCorrect: this.markAsCorrect,
       internalPoints: this.points,
-      internalCounter: this.counter
+      internalCounter: this.counter,
+      gameFinished: false
     };
   },
   created() {
@@ -74,7 +75,6 @@ export default {
       this.$emit("updatePoints", this.internalPoints);
       this.selectedUser = "";
       this.$emit("changeCorrect", (this.internalMarkAsCorrect = true));
-      myTrack.play();
     }
   }
 };

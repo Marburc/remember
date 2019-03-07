@@ -8,7 +8,7 @@
       :reset="reset"
       :persons="persons"
     ></app-navbar>
-    <app-gameOver :points="points" :persons="persons"></app-gameOver>
+    <app-gameOver v-if="gameFinished === true" :points="points" :persons="persons" :reset="reset"></app-gameOver>
 
     <app-welcome
       v-if="usersRendered === false"
@@ -21,7 +21,7 @@
     </div>
     <h4
       class="mt-4 score"
-      v-if="gameIsRunning === true"
+      v-if="gameIsRunning === true && gameFinished === false"
     >Punkte: {{points}} / {{this.persons.length * 3}}</h4>
     <app-personsGrid
       @updateCounter="counter = $event"
@@ -54,9 +54,10 @@ export default {
       markAsCorrect: false,
       usersRendered: false,
       gameIsRunning: false,
+      gameFinished: false,
       counter: 0,
-      points: 8,
-      persons: [2, 3, 3],
+      points: 0,
+      persons: [],
       personsAge: [],
       personsName: [],
       personsState: [],
@@ -71,7 +72,7 @@ export default {
     "app-welcome": Welcome,
     "app-gameOver": GameOver
   },
-  created() {},
+
   methods: {
     startGame() {
       axios
@@ -90,6 +91,7 @@ export default {
       this.counter = 0;
       this.points = 0;
       this.gameIsRunning = false;
+      this.gameFinished = false;
     },
     mix() {
       this.gameIsRunning = true;
@@ -103,6 +105,13 @@ export default {
         person.location.state = "";
         person.dob.age = "";
       });
+    }
+  },
+  watch: {
+    counter() {
+      if (this.counter === this.persons.length * 3) {
+        return (this.gameFinished = true);
+      }
     }
   }
 };
