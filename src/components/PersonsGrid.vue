@@ -35,7 +35,6 @@ export default {
       correctAnswer: "",
       selectedInfo: "",
       internalMarkAsCorrect: this.markAsCorrect,
-      internalPoints: this.points,
 
       gameFinished: false
     };
@@ -61,8 +60,8 @@ export default {
           this.corrAnswer("name");
         }
       } else {
-        this.internalPoints--;
-        this.$emit("updatePoints", this.internalPoints);
+        this.points--;
+        this.$emit("updatePoints", this.points);
       }
     },
     corrAnswer(type) {
@@ -71,8 +70,8 @@ export default {
       eventBus.$emit("correctAnswer", this.correctAnswer);
       this.counter++;
       this.$emit("updateCounter", this.counter);
-      this.internalPoints++;
-      this.$emit("updatePoints", this.internalPoints);
+      this.points++;
+      this.$emit("updatePoints", this.points);
       this.selectedUser = "";
       this.$emit("changeCorrect", (this.internalMarkAsCorrect = true));
     }

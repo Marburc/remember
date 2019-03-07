@@ -8,8 +8,7 @@
       :reset="reset"
       :persons="persons"
     ></app-navbar>
-    {{counter}}
-    {{gameFinished}}
+
     <app-gameOver v-if="gameFinished === true" :points="points" :persons="persons" :reset="reset"></app-gameOver>
 
     <app-welcome
