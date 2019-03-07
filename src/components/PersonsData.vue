@@ -1,38 +1,34 @@
 <template>
   <div class="personGroup" v-if="gameIsRunning === true">
-    <div>
-      <transition-group name="flip-list" class="person row">
-        <button
-          class="personBtn"
-          v-if="person.name.first !== ''"
-          v-for="person in personsName"
-          :key="person.login.username"
-          @click="checkState(person,'name')"
-        >{{person.name.first | toUpperCase }} {{person.name.last | toUpperCase}}</button>
-      </transition-group>
-    </div>
-    <div>
-      <transition-group name="flip-list" class="person row">
-        <button
-          class="personBtn"
-          v-if="person.dob.age !== ''"
-          :key="person.login.username"
-          v-for="person in personsAge"
-          @click="checkState(person,'age')"
-        >{{person.dob.age}}</button>
-      </transition-group>
-    </div>
-    <div>
-      <transition-group name="flip-list" class="person row">
-        <button
-          class="personBtn"
-          v-if="person.location.state !== ''"
-          :key="person.login.username"
-          v-for="person in personsState"
-          @click="checkState(person,'state')"
-        >{{person.location.state | toUpperCase}}</button>
-      </transition-group>
-    </div>
+    <transition-group name="flip-list" class="person">
+      <button
+        class="personBtn"
+        v-if="person.name.first !== ''"
+        v-for="person in personsName"
+        :key="person.login.username"
+        @click="checkState(person,'name')"
+      >{{person.name.first | toUpperCase }} {{person.name.last | toUpperCase}}</button>
+    </transition-group>
+
+    <transition-group name="flip-list" class="person">
+      <button
+        class="personBtn"
+        v-if="person.dob.age !== ''"
+        :key="person.login.username"
+        v-for="person in personsAge"
+        @click="checkState(person,'age')"
+      >{{person.dob.age}}</button>
+    </transition-group>
+
+    <transition-group name="flip-list" class="person">
+      <button
+        class="personBtn"
+        v-if="person.location.state !== ''"
+        :key="person.login.username"
+        v-for="person in personsState"
+        @click="checkState(person,'state')"
+      >{{person.location.state | toUpperCase}}</button>
+    </transition-group>
   </div>
 </template>
 <script>
@@ -86,10 +82,10 @@ export default {
 
 <style >
 .personGroup {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 100px;
+  position: absolute;
+  top: 70%;
+  left: 5%;
+  transform: translate(-50% -50%);
 }
 .person {
   margin: 10px auto;

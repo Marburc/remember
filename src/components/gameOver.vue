@@ -52,16 +52,23 @@ export default {
 </script>
 <style>
 .gameOver {
+  background-color: rgb(223, 223, 223);
   margin-left: auto;
   margin-right: auto;
   max-width: 900px;
   text-align: center;
   border: 2px solid rgba(69, 78, 87, 0.678);
   padding: 50px;
-  margin-top: 100px;
+
   -webkit-box-shadow: 8px 10px 38px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 8px 10px 38px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 8px 10px 38px 0px rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 30%;
+  left: 50%;
+
+  z-index: 1000;
+  transform: translate(-50%, -50%);
 }
 .gameOver h4 {
   display: block;

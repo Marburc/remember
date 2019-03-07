@@ -20,7 +20,7 @@
       <b-button class="btn px-4" @click="mix">Start</b-button>
     </div>
     <h4
-      class="mt-4 score"
+      class="score"
       v-if="gameIsRunning === true && gameFinished === false"
     >Punkte: {{points}} / {{this.persons.length * 3}}</h4>
     <app-personsGrid
@@ -120,11 +120,12 @@ export default {
 
 <style>
 .score {
+  background-color: aliceblue;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 40px;
-  margin-top: 40px;
+  margin-bottom: 10px;
+
   border: 2px solid rgba(69, 78, 87, 0.678);
   max-width: 400px;
   padding: 20px;
@@ -132,6 +133,11 @@ export default {
   -webkit-box-shadow: 8px 10px 27px -9px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 8px 10px 27px -9px rgba(0, 0, 0, 0.75);
   box-shadow: 8px 10px 27px -9px rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 1000;
+  transform: translate(-50%);
 }
 .info {
   margin-left: auto;
