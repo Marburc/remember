@@ -90,7 +90,7 @@ export default {
     reset() {
       this.usersRendered = false;
       this.markAsCorrect = false;
-
+      this.persons = [];
       this.points = 0;
       this.gameIsRunning = false;
       this.gameFinished = false;
