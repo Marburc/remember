@@ -1,19 +1,20 @@
 <template>
   <div class="welcome">
-    <p class="h4">Hi, Lust dein Erinnerungsvermögen zu verbessern?
-      <br>Wähle den Schwierigkeitsgrad aus und klicke rechts oben auf "Spiel Starten"!
+    <p class="h4">
+      <br>Wähle aus, wie viele Personen du dir merken möchtest und klicke auf "Spiel Starten"!
     </p>
-    <b-form inline>
-      <b-form-select class="selectField" v-model="selectedUsers" id="inlineFormCustomSelectPref">
-        <option class v-for="(user,index) in users" :key="index">{{user}}</option>
+    <b-form inline class="mt-3 justify-content-md-center">
+      <b-form-select v-model="selectedUsers" id="inlineFormCustomSelectPref">
+        <option v-for="(user,index) in users" :key="index">{{user}}</option>
       </b-form-select>
+      <b-button @click.prevent="startGame" size="md" class="ml-3" type="submit">Spiel Starten</b-button>
     </b-form>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["numberUsers"],
+  props: ["numberUsers", "startGame"],
   data() {
     return {
       users: [2, 3, 4, 5, 6, 7, 8],
@@ -49,11 +50,6 @@ export default {
   display: block;
   line-height: 2.2rem;
   color: rgb(71, 71, 71);
-}
-.selectField {
-  margin-left: auto;
-  margin-right: auto;
-  width: 50px;
 }
 </style>
 

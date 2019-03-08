@@ -7,13 +7,6 @@
       <b-navbar-nav class="ml-auto">
         <b-nav-form>
           <b-button
-            v-if="this.usersRendered === false"
-            @click.prevent="startGame"
-            size="sm"
-            class="my-2 my-sm-0 mx-2"
-            type="submit"
-          >Spiel Starten</b-button>
-          <b-button
             v-if="this.usersRendered === true"
             @click="reset"
             size="sm"

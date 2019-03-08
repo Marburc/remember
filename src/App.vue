@@ -4,7 +4,6 @@
       :points="points"
       :gameIsRunning="gameIsRunning"
       :usersRendered="usersRendered"
-      :startGame="startGame"
       :reset="reset"
       :persons="persons"
     ></app-navbar>
@@ -14,6 +13,7 @@
     <app-welcome
       v-if="usersRendered === false"
       :numberUsers="numberUsers"
+      :startGame="startGame"
       @amountUsers="numberUsers = $event"
     ></app-welcome>
     <div class="info" v-if="usersRendered && gameIsRunning === false">
