@@ -9,15 +9,15 @@
           :src="person.picture.large"
         >
         <p
-          :class="{correct: markAsCorrect, animated: markAsCorrect, swing: markAsCorrect}"
+          :class="{correct: markAsCorrect, animated: markAsCorrect, heartBeat: markAsCorrect}"
           v-if="person.name.first !== ''"
         >{{person.name.first | toUpperCase}} {{person.name.last | toUpperCase}}</p>
         <p
-          :class="{correct: markAsCorrect, animated: markAsCorrect, flipInX: markAsCorrect}"
+          :class="{correct: markAsCorrect, animated: markAsCorrect, heartBeat: markAsCorrect}"
           v-if="person.location.state !== ''"
         >{{person.location.state | toUpperCase}}</p>
         <p
-          :class="{correct: markAsCorrect, animated: markAsCorrect, rubberBand: markAsCorrect}"
+          :class="{correct: markAsCorrect, animated: markAsCorrect, heartBeat: markAsCorrect}"
           v-if="person.dob.age !== ''"
         >{{person.dob.age}}</p>
       </div>
