@@ -1,13 +1,13 @@
 <template>
   <div>
     <transition-group class="row" name="flip-list">
-      <div
-        class="person"
-        v-for="(person) in persons"
-        :key="person.login.username"
-        @click="checkUser(person)"
-      >
-        <img :src="person.picture.large">
+      <div class="person" v-for="(person) in persons" :key="person.login.username">
+        <img
+          @click="checkUser(person)"
+          :class="{ shake: person.animationClassWrong,  red: person.animationClassWrong}"
+          class="animated"
+          :src="person.picture.large"
+        >
         <p
           :class="{correct: markAsCorrect, animated: markAsCorrect, swing: markAsCorrect}"
           v-if="person.name.first !== ''"
@@ -35,7 +35,6 @@ export default {
       correctAnswer: "",
       selectedInfo: "",
       internalMarkAsCorrect: this.markAsCorrect,
-
       gameFinished: false
     };
   },
@@ -60,12 +59,17 @@ export default {
           this.corrAnswer("name");
         }
       } else {
+        this.$set(user, "animationClassWrong", true);
+        setTimeout(() => {
+          user.animationClassWrong = false;
+          console.log(user);
+        }, 1000);
+
         this.points--;
         this.$emit("updatePoints", this.points);
       }
     },
     corrAnswer(type) {
-      this.imageToggle = true;
       this.correctAnswer = type;
       eventBus.$emit("correctAnswer", this.correctAnswer);
       this.counter++;
@@ -74,11 +78,6 @@ export default {
       this.$emit("updatePoints", this.points);
       this.selectedUser = "";
       this.$emit("changeCorrect", (this.internalMarkAsCorrect = true));
-    }
-  },
-  computed: {
-    computedCounter() {
-      return this.counter;
     }
   }
 };
@@ -108,6 +107,9 @@ export default {
 }
 .correct {
   background-color: rgba(67, 253, 67, 0.287);
+}
+.red {
+  border: 5px solid rgb(207, 80, 80) !important;
 }
 </style>
 
