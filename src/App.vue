@@ -17,7 +17,7 @@
       @amountUsers="numberUsers = $event"
     ></app-welcome>
     <div class="info" v-if="usersRendered && gameIsRunning === false">
-      <h4>Merke Dir die Personen und klicke Start!</h4>
+      <h4>Merke Dir die Daten zu den jeweiligen Personen und klicke Start!</h4>
       <b-button class="btn px-4" @click="mix">Start</b-button>
     </div>
     <h4
@@ -182,7 +182,7 @@ button:active {
   background: #fcfcfc;
   border: 3px solid #db2b39;
   border-radius: 40px;
-  max-width: 400px;
+  max-width: 500px;
   padding: 20px;
   text-align: center;
   -webkit-box-shadow: 8px 10px 38px 0px rgba(0, 0, 0, 0.75);

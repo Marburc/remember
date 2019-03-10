@@ -125,8 +125,8 @@ export default {
 }
 .hover {
   box-shadow: 0px 15px 25px -5px #212a33;
-  -webkit-transform: scale(1.03);
-  transform: scale(1.03);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .person p {
