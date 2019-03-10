@@ -51,7 +51,7 @@ import PersonsData from "./components/PersonsData.vue";
 export default {
   data() {
     return {
-      numberUsers: 4,
+      numberUsers: null,
       markAsCorrect: false,
       usersRendered: false,
       gameIsRunning: false,
@@ -79,15 +79,21 @@ export default {
       axios
         .get(`https://randomuser.me/api/?results=${this.numberUsers}&nat=de`)
         .then(users => {
-          this.counter = 0;
-          this.persons = users.data.results;
-          this.personsName = JSON.parse(JSON.stringify(this.persons));
-          this.personsState = JSON.parse(JSON.stringify(this.persons));
-          this.personsAge = JSON.parse(JSON.stringify(this.persons));
-          this.usersRendered = true;
+          if (this.numberUsers === null) {
+            alert("Wähle erst aus wie viele Personen du dir merken willst!");
+            return;
+          } else {
+            this.counter = 0;
+            this.persons = users.data.results;
+            this.personsName = JSON.parse(JSON.stringify(this.persons));
+            this.personsState = JSON.parse(JSON.stringify(this.persons));
+            this.personsAge = JSON.parse(JSON.stringify(this.persons));
+            this.usersRendered = true;
+          }
         });
     },
     reset() {
+      this.numberUsers = null;
       this.usersRendered = false;
       this.markAsCorrect = false;
       this.persons = [];
