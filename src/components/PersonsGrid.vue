@@ -86,6 +86,8 @@ export default {
 <style>
 .person {
   margin-right: 30px;
+  margin: 10px auto;
+  text-align: center;
 }
 
 .person img {

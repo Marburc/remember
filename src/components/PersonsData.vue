@@ -1,35 +1,35 @@
 <template>
-  <div class="personGroup" v-if="gameIsRunning === true">
+  <b-container class="personGroup" v-if="gameIsRunning === true">
     <transition-group name="flip-list" class="person">
-      <button
+      <p
         class="personBtn"
         v-if="person.name.first !== ''"
         v-for="person in personsName"
         :key="person.login.username"
         @click="checkState(person,'name')"
-      >{{person.name.first | toUpperCase }} {{person.name.last | toUpperCase}}</button>
+      >{{person.name.first | toUpperCase }} {{person.name.last | toUpperCase}}</p>
     </transition-group>
 
     <transition-group name="flip-list" class="person">
-      <button
+      <p
         class="personBtn"
         v-if="person.dob.age !== ''"
         :key="person.login.username"
         v-for="person in personsAge"
         @click="checkState(person,'age')"
-      >{{person.dob.age}}</button>
+      >{{person.dob.age}}</p>
     </transition-group>
 
     <transition-group name="flip-list" class="person">
-      <button
+      <p
         class="personBtn"
         v-if="person.location.state !== ''"
         :key="person.login.username"
         v-for="person in personsState"
         @click="checkState(person,'state')"
-      >{{person.location.state | toUpperCase}}</button>
+      >{{person.location.state | toUpperCase}}</p>
     </transition-group>
-  </div>
+  </b-container>
 </template>
 <script>
 import { eventBus } from "../main";
@@ -87,18 +87,15 @@ export default {
   left: 5%;
   transform: translate(-50% -50%);
 }
-.person {
-  margin: 10px auto;
-  text-align: center;
-}
+
 .person p {
   font-weight: bold;
   color: rgb(71, 71, 71);
-  /* background-color: rgb(171, 171, 187); */
+
   border: 0;
   outline: 0;
   padding: 1.2rem 1.6rem;
-  /* font-size: 1.3rem; */
+
   box-shadow: 0px 5px 10px #979797;
   transition: all 0.3s;
   border-radius: 5px;
