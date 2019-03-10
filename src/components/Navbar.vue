@@ -41,5 +41,29 @@ export default {
 };
 </script>
 
+<style scoped>
+button {
+  background-color: #db2b39 !important;
+  border: 0;
+  outline: 0;
+  padding: 10px 10px !important;
+  font-size: 1.3rem !important;
+  box-shadow: 0px 5px 10px #575757;
+  transition: all 0.3s;
+  cursor: pointer;
+  border-radius: 30px !important;
+  border-bottom: 4px solid #797979;
+}
+button:hover {
+  box-shadow: 0px 15px 25px -5px #afafaf;
+  -webkit-transform: scale(1.03);
+  transform: scale(1.03);
+}
+button:active {
+  box-shadow: 0px 4px 8px #1d2b3a;
+  -webkit-transform: scale(0.98);
+  transform: scale(0.98);
+}
+</style>
 
 

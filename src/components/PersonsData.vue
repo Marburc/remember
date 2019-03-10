@@ -1,6 +1,6 @@
 <template>
   <b-container class="personGroup" v-if="gameIsRunning === true">
-    <b-row align-h="center" class="mt-5">
+    <b-row align-h="center" class="mt-4">
       <b-col cols="4">
         <transition-group name="flip-list" class="person">
           <p
@@ -99,7 +99,7 @@ export default {
   box-shadow: 0px 5px 10px #979797;
   transition: all 0.3s;
   border-radius: 5px;
-  border-bottom: 4px solid #d9d9d9;
+  /* border-bottom: 4px solid #d9d9d9; */
 }
 
 .flip-list-move {

@@ -179,7 +179,9 @@ button:active {
   margin-right: auto;
   margin-bottom: 40px;
   margin-top: 40px;
-  border: 2px solid lightblue;
+  background: #fcfcfc;
+  border: 3px solid #db2b39;
+  border-radius: 40px;
   max-width: 400px;
   padding: 20px;
   text-align: center;
