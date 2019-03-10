@@ -4,30 +4,36 @@
       <b-col cols="4">
         <transition-group name="flip-list" class="person">
           <p
-            class="personBtn"
+            :class="{hover: person.isHovered }"
             v-if="person.name.first !== ''"
             v-for="person in personsName"
             :key="person.login.username"
             @click="checkState(person,'name')"
+            @mouseover="addHoverClass(person)"
+            @mouseout="deleteHoverClass(person)"
           >{{person.name.first | toUpperCase }} {{person.name.last | toUpperCase}}</p>
         </transition-group>
 
         <transition-group name="flip-list" class="person">
           <p
-            class="personBtn"
+            :class="{hover: person.isHovered }"
             v-if="person.dob.age !== ''"
             :key="person.login.username"
             v-for="person in personsAge"
+            @mouseover="addHoverClass(person)"
+            @mouseout="deleteHoverClass(person)"
             @click="checkState(person,'age')"
           >{{person.dob.age}}</p>
         </transition-group>
 
         <transition-group name="flip-list" class="person">
           <p
-            class="personBtn"
+            :class="{hover: person.isHovered }"
             v-if="person.location.state !== ''"
             :key="person.login.username"
             v-for="person in personsState"
+            @mouseover="addHoverClass(person)"
+            @mouseout="deleteHoverClass(person)"
             @click="checkState(person,'state')"
           >{{person.location.state | toUpperCase}}</p>
         </transition-group>
@@ -53,6 +59,12 @@ export default {
       this.selectedUser = person;
 
       eventBus.$emit("selectedUser", this.selectedUser, this.selectedInfo);
+    },
+    addHoverClass(person) {
+      this.$set(person, "isHovered", true);
+    },
+    deleteHoverClass(person) {
+      person.isHovered = false;
     }
   },
   created() {
@@ -85,7 +97,10 @@ export default {
 </script>
 
 <style >
-.personGroup {
+.hover {
+  box-shadow: 0px 15px 25px -5px #212a33;
+  -webkit-transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 .person p {
