@@ -104,33 +104,6 @@ export default {
   border-radius: 5px;
   border-bottom: 4px solid #d9d9d9;
 }
-.personBtn {
-  margin: 10px;
-  font-weight: bold;
-}
-button {
-  background-color: rgb(255, 255, 255);
-  border: 0;
-  outline: 0;
-  padding: 1.4rem 1.9rem;
-  font-size: 1.3rem;
-  font-family: monospace;
-  box-shadow: 0px 5px 10px #979797;
-  transition: all 0.3s;
-  cursor: pointer;
-  border-radius: 5px;
-  border-bottom: 4px solid #d9d9d9;
-}
-button:hover {
-  box-shadow: 0px 15px 25px -5px #212a33;
-  -webkit-transform: scale(1.03);
-  transform: scale(1.03);
-}
-button:active {
-  box-shadow: 0px 4px 8px #1d2b3a;
-  -webkit-transform: scale(0.98);
-  transform: scale(0.98);
-}
 
 .flip-list-move {
   transition: transform 1s;

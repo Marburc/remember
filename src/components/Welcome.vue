@@ -1,15 +1,24 @@
 <template>
-  <div class="welcome">
-    <p class="h4">
-      <br>Wähle aus, wie viele Personen du dir merken möchtest und klicke auf "Spiel Starten"!
-    </p>
-    <b-form inline class="mt-3 justify-content-md-center">
-      <b-form-select v-model="selectedUsers" id="inlineFormCustomSelectPref">
-        <option v-for="(user,index) in users" :key="index">{{user}}</option>
-      </b-form-select>
-      <b-button @click.prevent="startGame" size="md" class="ml-3" type="submit">Spiel Starten</b-button>
-    </b-form>
-  </div>
+  <b-container>
+    <b-row align-h="center">
+      <b-col cols="9" class="welcome">
+        <p class="h2">
+          <br>Wähle aus, wie viele Personen du dir merken möchtest und klicke auf "Spiel Starten"!
+        </p>
+        <b-form inline class="mt-3 justify-content-md-center">
+          <b-form-select
+            v-model="selectedUsers"
+            :users="users"
+            class="chooseNumUser"
+            id="inlineFormCustomSelectPref"
+          >
+            <option v-for="(user,index) in users" :key="index">{{user}}</option>
+          </b-form-select>
+          <b-button @click.prevent="startGame" size="md" class="ml-3" type="submit">Spiel Starten</b-button>
+        </b-form>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
@@ -35,11 +44,10 @@ export default {
 </script>
 <style>
 .welcome {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 900px;
   text-align: center;
-  border: 2px solid rgba(69, 78, 87, 0.678);
+  background: #fcfcfc;
+  border: 3px solid #db2b39;
+  border-radius: 40px;
   padding: 50px;
   margin-top: 100px;
   -webkit-box-shadow: 8px 10px 38px 0px rgba(0, 0, 0, 0.75);
@@ -48,8 +56,14 @@ export default {
 }
 .welcome p {
   display: block;
-  line-height: 2.2rem;
-  color: rgb(71, 71, 71);
+  line-height: 3.4rem;
+  font-weight: bold;
+  color: rgb(73, 73, 73);
+}
+
+.chooseNumUser {
+  border-color: rgb(0, 0, 0) !important;
+  color: #252840 !important;
 }
 </style>
 

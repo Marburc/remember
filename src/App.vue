@@ -120,7 +120,34 @@ export default {
 </script>
 
 
-<style>
+<style >
+body {
+  background: #252840 !important;
+  font-family: "Kalam", cursive !important;
+}
+button {
+  background-color: #db2b39 !important;
+  border: 0;
+  outline: 0;
+  padding: 10px 10px !important;
+  font-size: 1.3rem !important;
+  box-shadow: 0px 5px 10px #979797;
+  transition: all 0.3s;
+  cursor: pointer;
+  border-radius: 30px !important;
+  border-bottom: 4px solid #d9d9d9;
+}
+button:hover {
+  box-shadow: 0px 15px 25px -5px #212a33;
+  -webkit-transform: scale(1.03);
+  transform: scale(1.03);
+}
+button:active {
+  box-shadow: 0px 4px 8px #1d2b3a;
+  -webkit-transform: scale(0.98);
+  transform: scale(0.98);
+}
+
 .score {
   background-color: aliceblue;
   text-align: center;
