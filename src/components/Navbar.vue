@@ -1,7 +1,7 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="dark">
-      <b-navbar-brand href="#">Remember Me???</b-navbar-brand>
+    <b-navbar toggleable="lg" type="dark">
+      <b-navbar-brand class="h1" href="#">Remember Me???</b-navbar-brand>
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">

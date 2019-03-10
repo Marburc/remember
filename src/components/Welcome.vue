@@ -7,7 +7,7 @@
         </p>
         <b-form inline class="mt-3 justify-content-md-center">
           <div>
-            <b-form-select v-model="selectedUsers" :options="options" size="sm" class="mt-3"/>
+            <b-form-select v-model="selectedUsers" :options="options" size="sm"/>
           </div>
           <b-button @click.prevent="startGame" size="md" class="ml-3" type="submit">Spiel Starten</b-button>
         </b-form>
