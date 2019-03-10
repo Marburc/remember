@@ -193,4 +193,12 @@ button:active {
   color: rgb(71, 71, 71);
   line-height: 2rem;
 }
+.custom-select-sm {
+  height: calc(1.5em + 0.5rem + 2px);
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  font-size: 1.2rem !important;
+  border-color: rgb(97, 97, 97) !important;
+}
 </style>

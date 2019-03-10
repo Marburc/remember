@@ -3,7 +3,7 @@
     <b-row align-h="center">
       <b-col cols="9" class="welcome">
         <p class="h2">
-          <br>Wähle aus, wie viele Personen du dir merken möchtest und klicke auf "Spiel Starten"!
+          <br>Wähle aus wie viele Personen du dir merken möchtest und klicke auf "Spiel Starten"!
         </p>
         <b-form inline class="mt-3 justify-content-md-center">
           <div>
