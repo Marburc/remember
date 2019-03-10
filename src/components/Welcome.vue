@@ -46,7 +46,7 @@ export default {
   text-align: center;
   background: #fcfcfc;
   border: 3px solid #db2b39;
-  border-radius: 40px;
+  border-radius: 5px;
   padding: 50px;
   margin-top: 100px;
   -webkit-box-shadow: 8px 10px 38px 0px rgba(0, 0, 0, 0.75);

@@ -181,7 +181,7 @@ button:active {
   margin-top: 20px;
   background: #fcfcfc;
   border: 3px solid #db2b39;
-  border-radius: 40px;
+  border-radius: 5px;
   max-width: 500px;
   padding: 20px;
   text-align: center;
