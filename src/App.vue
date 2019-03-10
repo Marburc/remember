@@ -169,7 +169,7 @@ button:active {
   -moz-box-shadow: 8px 10px 27px -9px rgba(0, 0, 0, 0.75);
   box-shadow: 8px 10px 27px -9px rgba(0, 0, 0, 0.75);
   position: absolute;
-  top: 0;
+  top: 3px;
   left: 50%;
   z-index: 1000;
   transform: translate(-50%);

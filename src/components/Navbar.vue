@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <b-container>
     <b-navbar toggleable="lg" type="dark">
       <b-navbar-brand class="h1" href="#">Remember Me???</b-navbar-brand>
 
@@ -26,7 +26,7 @@
         <b-dropdown-item href="#">Signout</b-dropdown-item>-->
       </b-navbar-nav>
     </b-navbar>
-  </div>
+  </b-container>
 </template>
 <script>
 export default {
