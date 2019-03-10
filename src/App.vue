@@ -178,7 +178,7 @@ button:active {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
-  margin-top: 40px;
+  margin-top: 20px;
   background: #fcfcfc;
   border: 3px solid #db2b39;
   border-radius: 40px;

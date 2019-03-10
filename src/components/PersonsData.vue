@@ -4,7 +4,7 @@
       <b-col cols="4">
         <transition-group name="flip-list" class="person">
           <p
-            :class="{hover: person.isHovered }"
+            :class="{hover: person.isHovered, marked: person.isMarked } "
             v-if="person.name.first !== ''"
             v-for="person in personsName"
             :key="person.login.username"
@@ -16,7 +16,7 @@
 
         <transition-group name="flip-list" class="person">
           <p
-            :class="{hover: person.isHovered }"
+            :class="{hover: person.isHovered, marked: person.isMarked } "
             v-if="person.dob.age !== ''"
             :key="person.login.username"
             v-for="person in personsAge"
@@ -28,7 +28,7 @@
 
         <transition-group name="flip-list" class="person">
           <p
-            :class="{hover: person.isHovered }"
+            :class="{hover: person.isHovered, marked: person.isMarked } "
             v-if="person.location.state !== ''"
             :key="person.login.username"
             v-for="person in personsState"
@@ -55,10 +55,33 @@ export default {
   props: ["personsName", "personsState", "personsAge", "gameIsRunning"],
   methods: {
     checkState(person, info) {
-      this.selectedInfo = info;
-      this.selectedUser = person;
+      if (person.isMarked) {
+        person.isMarked = false;
+        console.log(person);
+      } else {
+        this.personsName.forEach(name => {
+          if (name.isMarked) {
+            name.isMarked = false;
+          }
+        });
+        this.personsState.forEach(name => {
+          if (name.isMarked) {
+            name.isMarked = false;
+          }
+        });
+        this.personsAge.forEach(name => {
+          if (name.isMarked) {
+            name.isMarked = false;
+          }
+        });
 
-      eventBus.$emit("selectedUser", this.selectedUser, this.selectedInfo);
+        this.$set(person, "isMarked", true);
+        console.log(person);
+        this.selectedInfo = info;
+        this.selectedUser = person;
+
+        eventBus.$emit("selectedUser", this.selectedUser, this.selectedInfo);
+      }
     },
     addHoverClass(person) {
       this.$set(person, "isHovered", true);
@@ -97,6 +120,9 @@ export default {
 </script>
 
 <style >
+.marked {
+  border: 3px solid yellow !important;
+}
 .hover {
   box-shadow: 0px 15px 25px -5px #212a33;
   -webkit-transform: scale(1.03);
