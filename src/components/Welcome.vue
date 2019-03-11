@@ -26,9 +26,8 @@ export default {
         { value: "3", text: "3 Personen (leicht)" },
         { value: "4", text: "4 Personen (leicht)" },
         { value: "5", text: "5 Personen (mittel)" },
-        { value: "6", text: "6 Personen (mittel)" },
-        { value: "7", text: "7 Personen (schwer)" },
-        { value: "8", text: "8 Personen (schwer)" }
+        { value: "6", text: "6 Personen (schwierig)" },
+        { value: "7", text: "7 Personen (sehr schwierig)" }
       ],
       selectedUsers: null
     };

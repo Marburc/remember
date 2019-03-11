@@ -1,27 +1,31 @@
 <template>
   <div>
-    <transition-group class="row" name="flip-list">
-      <div class="person" v-for="(person) in persons" :key="person.login.username">
-        <img
-          @click="checkUser(person)"
-          :class="{ shake: person.animationClassWrong,  red: person.animationClassWrong}"
-          class="animated"
-          :src="person.picture.large"
-        >
-        <p
-          :class="{correct: markAsCorrect, animated: markAsCorrect, heartBeat: markAsCorrect}"
-          v-if="person.name.first !== ''"
-        >{{person.name.first | toUpperCase}} {{person.name.last | toUpperCase}}</p>
-        <p
-          :class="{correct: markAsCorrect, animated: markAsCorrect, heartBeat: markAsCorrect}"
-          v-if="person.location.state !== ''"
-        >{{person.location.state | toUpperCase}}</p>
-        <p
-          :class="{correct: markAsCorrect, animated: markAsCorrect, heartBeat: markAsCorrect}"
-          v-if="person.dob.age !== ''"
-        >{{person.dob.age}}</p>
-      </div>
-    </transition-group>
+    <b-row>
+      <b-col>
+        <transition-group class="row" name="flip-list">
+          <div class="person" v-for="(person) in persons" :key="person.login.username">
+            <img
+              @click="checkUser(person)"
+              :class="{ shake: person.animationClassWrong,  red: person.animationClassWrong}"
+              class="animated"
+              :src="person.picture.large"
+            >
+            <p
+              :class="{correct: markAsCorrect, animated: markAsCorrect, heartBeat: markAsCorrect}"
+              v-if="person.name.first !== ''"
+            >{{person.name.first | toUpperCase}} {{person.name.last | toUpperCase}}</p>
+            <p
+              :class="{correct: markAsCorrect, animated: markAsCorrect, heartBeat: markAsCorrect}"
+              v-if="person.location.state !== ''"
+            >{{person.location.state | toUpperCase}}</p>
+            <p
+              :class="{correct: markAsCorrect, animated: markAsCorrect, heartBeat: markAsCorrect}"
+              v-if="person.dob.age !== ''"
+            >{{person.dob.age}}</p>
+          </div>
+        </transition-group>
+      </b-col>
+    </b-row>
   </div>
 </template>
 <script>
