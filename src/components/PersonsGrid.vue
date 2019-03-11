@@ -112,7 +112,7 @@ export default {
   transition: transform 1s;
 }
 .correct {
-  background-color: #86cb92 !important;
+  background-color: #a2d729 !important;
 }
 .red {
   border: 5px solid rgb(207, 80, 80) !important;

@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <b-row align-h="center">
+    <b-row align-h="center flipInX animated">
       <b-col cols="9" class="welcome">
         <p class="h2">
           <br>Wähle aus wie viele Personen du dir merken möchtest und klicke auf "Spiel Starten"!

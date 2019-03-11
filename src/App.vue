@@ -16,7 +16,7 @@
       :startGame="startGame"
       @amountUsers="numberUsers = $event"
     ></app-welcome>
-    <div class="info" v-if="usersRendered && gameIsRunning === false">
+    <div class="info animated fadeInRight" v-if="usersRendered && gameIsRunning === false">
       <h4>Merke Dir die Daten zu den jeweiligen Personen und klicke Start!</h4>
       <b-button class="btn px-4" @click="mix">Start</b-button>
     </div>
@@ -160,8 +160,9 @@ button:active {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
-
-  border: 2px solid rgba(69, 78, 87, 0.678);
+  background: #fcfcfc;
+  border: 3px solid #db2b39;
+  border-radius: 5px;
   max-width: 400px;
   padding: 20px;
   text-align: center;

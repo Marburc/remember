@@ -4,6 +4,7 @@
       <b-col cols="4">
         <transition-group name="flip-list" class="person">
           <p
+            style="cursor: pointer"
             :class="{hover: person.isHovered, marked: person.isMarked } "
             v-if="person.name.first !== ''"
             v-for="person in personsName"
@@ -16,6 +17,7 @@
 
         <transition-group name="flip-list" class="person">
           <p
+            style="cursor: pointer"
             :class="{hover: person.isHovered, marked: person.isMarked } "
             v-if="person.dob.age !== ''"
             :key="person.login.username"
@@ -28,6 +30,7 @@
 
         <transition-group name="flip-list" class="person">
           <p
+            style="cursor: pointer"
             :class="{hover: person.isHovered, marked: person.isMarked } "
             v-if="person.location.state !== ''"
             :key="person.login.username"
@@ -76,7 +79,6 @@ export default {
         });
 
         this.$set(person, "isMarked", true);
-        console.log(person);
         this.selectedInfo = info;
         this.selectedUser = person;
 
