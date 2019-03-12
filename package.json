@@ -1,7 +1,7 @@
 {
   "name": "vue-remember",
   "version": "0.1.0",
-  "homepage": "https://marburc.github.io/Remember-Me/",
+  "homepage": "https://github.com/Marburc/remember",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -25,6 +25,7 @@
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "gh-pages": "^2.0.1",
+    "push-dir": "^0.4.1",
     "vue-template-compiler": "^2.5.21"
   }
 }
